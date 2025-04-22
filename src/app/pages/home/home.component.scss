@@ -3,15 +3,17 @@
     max-height: 30px;
     object-fit: contain; // Optional: keeps aspect ratio nice
 }
-
 .set {
     display: flex;
     align-items: center;
     gap: 0.75rem; // space between image and heading
 }
-
-:host {
+mat-list {
+    overflow: auto;
     height: 100%;
+}
+.list-container {
+    display: flex;
     border: 3px dashed red;
-
+    height: 94%;
 }

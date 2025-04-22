@@ -1,4 +1,6 @@
-<div class="set">
-    <img [src]="set()?.icon_svg_uri" alt="Dynamic Image" class="img-limit" />
-    <h2>{{ set()?.name }}</h2>
-</div>
+        <mat-list-item (click)="cardOverview.updateCardList(strictSet)">
+            <div class="set">
+                <img [src]="set()?.icon_svg_uri" alt="Dynamic Image" class="img-limit" />
+                <h2>{{ set()?.name }}</h2>
+            </div>
+        </mat-list-item>

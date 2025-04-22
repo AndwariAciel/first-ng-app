@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  app-root {
+    height: 100%;
+    display: block;
+  }
+  
+  app-header {
+    height: 6%;
+  }
+  router-outlet {
+    height: 94%;
+  }

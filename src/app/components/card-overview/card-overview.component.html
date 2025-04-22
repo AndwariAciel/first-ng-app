@@ -1,0 +1,6 @@
+<h2>Set: {{ setData().name }}</h2>
+
+@for (card of cardData().data; track $index) {
+    <p>{{ card.name }}</p>
+    <img [src]="card.image_uris?.small" alt="Dynamic Image"  />
+}
