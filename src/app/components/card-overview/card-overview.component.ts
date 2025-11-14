@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Set } from '../../models/set.type';
+import { MagicSet } from '../../models/set.type';
 import { Cards } from '../../models/cards.type';
 import { CardService } from '../../services/card.service';
 

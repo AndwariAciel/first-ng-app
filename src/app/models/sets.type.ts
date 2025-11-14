@@ -1,5 +1,5 @@
-import { Set } from "./set.type";
+import { MagicSet } from "./set.type";
 
 export type Sets = {
-    data : Array<Set>;
+    data : Array<MagicSet>;
 }

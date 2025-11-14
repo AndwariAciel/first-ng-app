@@ -1,0 +1,16 @@
+.gitignore
+README.md
+api.base.service.ts
+api.module.ts
+api/api.ts
+api/appRestController.service.ts
+api/timerRestController.service.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/models.ts
+model/setEntity.ts
+param.ts
+provide-api.ts
+variables.ts
