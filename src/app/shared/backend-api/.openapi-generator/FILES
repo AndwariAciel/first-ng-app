@@ -10,7 +10,8 @@ encoder.ts
 git_push.sh
 index.ts
 model/models.ts
-model/setEntity.ts
+model/setModel.ts
+model/timerModel.ts
 param.ts
 provide-api.ts
 variables.ts

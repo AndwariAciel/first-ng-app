@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Sets } from '../models/sets.type';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { MagicSet } from '../models/set.type';
-import { SetEntity, AppRestControllerService } from '../shared/backend-api';
+import { SetModel, AppRestControllerService } from '../shared/backend-api';
 
 
 @Injectable({
@@ -11,23 +11,33 @@ import { SetEntity, AppRestControllerService } from '../shared/backend-api';
 })
 export class SetService {
 
-  httpService = inject(HttpClient);
   restService = inject(AppRestControllerService);
 
   getSetList(): Observable<Sets> {
-    return this.restService.getSetList().pipe(
-          tap(v => console.log("REAL API RESPONSE:", v)),
-      map(sets => ({ data: sets.map(this.mapToSet) }))
+    return this.restService.getSetList()
+    .pipe(
+      map(sets => { 
+        const sorted = sets.sort((a, b) => (b.releaseDate ?? '').localeCompare(a.releaseDate ?? ''));
+        return { data: sets.map(this.mapToSet) }
+    })
     );
   }
 
-  private mapToSet(set : SetEntity): MagicSet {
+  private mapToSet(set: SetModel): MagicSet {
     return {
       name: set.name ?? '',
       set_type: set.type ?? '',
       icon_svg_uri: set.iconUrl ?? '',
-      code: set.code ?? ''
+      code: set.code ?? '',
+      released: set.released ?? false
     };
+  }
+
+  getStatusColor(set: MagicSet): string {
+    if (set.released)
+      return 'green';
+    else
+      return 'red';
   }
 
 }

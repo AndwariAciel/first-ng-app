@@ -1,0 +1,53 @@
+<div class="timer-page">
+  <h1 class="page-title">Timers</h1>
+
+  <!-- If timers is an Observable<Timer[]> -->
+  <ng-container *ngIf="timers | async as list; else loading">
+    <div class="timer-list" *ngIf="list.data.length > 0; else empty">
+      <div class="timer-card" *ngFor="let t of list.data">
+        <div class="timer-left">
+          <div class="timer-name">{{ t.name }}</div>
+        </div>
+
+        <div class="timer-right">
+          <div class="timer-meta">
+            <span class="label">Status:</span>
+            <span class="value">{{ t.status }}</span>
+          </div>
+          <div class="timer-meta">
+            <span class="label">Cron:</span>
+            <span class="value">{{ t.cron }}</span>
+          </div>
+
+          <div class="timer-actions">
+            <button class="btn btn-secondary" type="button" (click)="runNow(t)">
+              Run now
+            </button>
+
+            <button
+              class="btn"
+              type="button"
+              [class.btn-danger]="t.status === 'ACTIVE'"
+              [class.btn-primary]="t.status !== 'ACTIVE'"
+              (click)="toggleTimer(t)"
+            >
+              {{ t.status === 'ACTIVE' ? 'Stop' : 'Start' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #empty>
+      <div class="state state--empty">
+        No timers yet.
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="state state--loading">
+      Loading timers…
+    </div>
+  </ng-template>
+</div>

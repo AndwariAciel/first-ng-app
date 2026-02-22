@@ -13,7 +13,8 @@ export class CardService {
     name: 'None selected',
     set_type: '',
     icon_svg_uri: '',
-    code: ''
+    code: '',
+    released: false
   });
   private cardList$ = signal<Cards>({
     has_more: false,

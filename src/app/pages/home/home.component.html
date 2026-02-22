@@ -1,9 +1,10 @@
 <div class="list-container">
-    <div style="flex: 0 1 20%; overflow-y: auto; max-height: 100vh;">
+    <div style="flex: 0 1 30%; overflow-y: auto; max-height: 100vh;">
         <mat-list>
             @for (set of setList; track $index) {
             <mat-list-item (click)="cardService.updateCardList(set)">
                 <div class="set">
+                    <span class="status-circle" [ngClass]="setService.getStatusColor(set)"></span>
                     <img [src]="set.icon_svg_uri" alt="Dynamic Image" class="img-limit" />
                     <h2>{{ set.name }}</h2>
                 </div>
@@ -11,5 +12,5 @@
             }
         </mat-list>
     </div>
-    <app-card-overview style="flex: 0 1 80%;" />
+    <app-card-overview style="flex: 0 1 70%;" />
 </div>

@@ -5,10 +5,11 @@ import { CardOverviewComponent } from '../../components/card-overview/card-overv
 import { MagicSet } from '../../models/set.type';
 import { MatListModule } from '@angular/material/list';
 import { CardService } from '../../services/card.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [SetlistComponent, CardOverviewComponent, MatListModule],
+  imports: [CommonModule, CardOverviewComponent, MatListModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

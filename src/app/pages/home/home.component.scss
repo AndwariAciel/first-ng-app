@@ -16,3 +16,19 @@ mat-list {
     display: flex;
     height: 90%;
 }
+.status-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+/* Colors */
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: gold;
+}
+.red {
+  background-color: red;
+}

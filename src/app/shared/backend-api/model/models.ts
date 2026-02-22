@@ -1,1 +1,2 @@
-export * from './setEntity';
+export * from './setModel';
+export * from './timerModel';

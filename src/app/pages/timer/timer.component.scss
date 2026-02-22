@@ -1,0 +1,120 @@
+.timer-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.timer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timer-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 16px;
+  border-radius: 12px;
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.timer-left {
+  min-width: 0;
+}
+
+.timer-name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timer-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.timer-meta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.label {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.value {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Buttons */
+
+.timer-actions {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #fff;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.98);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn-primary {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.btn-secondary {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.btn-danger {
+  background: rgba(0, 0, 0, 0.10);
+}
+
+/* States */
+.state {
+  padding: 18px 16px;
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  opacity: 0.8;
+}
