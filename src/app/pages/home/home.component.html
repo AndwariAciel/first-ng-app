@@ -1,16 +1,19 @@
 <div class="list-container">
-    <div style="flex: 0 1 30%; overflow-y: auto; max-height: 100vh;">
-        <mat-list>
+    <div class="sets-sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Sets</span>
+        </div>
+        <div class="sets-list">
             @for (set of setList; track $index) {
-            <mat-list-item (click)="cardService.updateCardList(set)">
-                <div class="set">
-                    <span class="status-circle" [ngClass]="setService.getStatusColor(set)"></span>
-                    <img [src]="set.icon_svg_uri" alt="Dynamic Image" class="img-limit" />
-                    <h2>{{ set.name }}</h2>
+            <div class="set-item" (click)="cardService.updateCardList(set)">
+                <span class="status-dot" [ngClass]="setService.getStatusColor(set)"></span>
+                <div class="set-icon-wrapper">
+                    <img [src]="set.icon_svg_uri" alt="" class="set-icon" />
                 </div>
-            </mat-list-item>
+                <span class="set-name">{{ set.name }}</span>
+            </div>
             }
-        </mat-list>
+        </div>
     </div>
-    <app-card-overview style="flex: 0 1 70%;" />
+    <app-card-overview class="card-overview-panel" />
 </div>

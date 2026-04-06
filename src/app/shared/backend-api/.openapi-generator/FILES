@@ -9,8 +9,12 @@ configuration.ts
 encoder.ts
 git_push.sh
 index.ts
+model/cardModel.ts
+model/maskModel.ts
 model/models.ts
+model/setCardModel.ts
 model/setModel.ts
+model/shapeModel.ts
 model/timerModel.ts
 param.ts
 provide-api.ts

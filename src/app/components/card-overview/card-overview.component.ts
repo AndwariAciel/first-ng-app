@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { MagicSet } from '../../models/set.type';
-import { Cards } from '../../models/cards.type';
 import { CardService } from '../../services/card.service';
+import { SetService } from '../../services/set.service';
 
 @Component({
   selector: 'app-card-overview',
@@ -12,6 +11,7 @@ import { CardService } from '../../services/card.service';
 export class CardOverviewComponent {
 
   cardService = inject(CardService);
+  setService = inject(SetService);
 
   get cardData() {
     return this.cardService.cardList;

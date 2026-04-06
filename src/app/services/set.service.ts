@@ -1,5 +1,4 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Sets } from '../models/sets.type';
 import { Observable, map } from 'rxjs';
 import { MagicSet } from '../models/set.type';
@@ -23,13 +22,19 @@ export class SetService {
     );
   }
 
+  updateSet(set: MagicSet): void {
+    this.restService.updateCardsForSet(set.code ?? '').subscribe();
+  }
+
   private mapToSet(set: SetModel): MagicSet {
     return {
       name: set.name ?? '',
       set_type: set.type ?? '',
       icon_svg_uri: set.iconUrl ?? '',
       code: set.code ?? '',
-      released: set.released ?? false
+      released: set.released ?? false,
+      cards: set.cards ?? 0,
+      cardsReady: set.cardsReady ?? 0
     };
   }
 

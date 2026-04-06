@@ -4,4 +4,6 @@ export type MagicSet = {
     icon_svg_uri: string;
     code: string;
     released: boolean;
+    cards: number;
+    cardsReady: number;
 }
