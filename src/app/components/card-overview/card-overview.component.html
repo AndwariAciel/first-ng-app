@@ -10,8 +10,15 @@
         } @else {
             <div class="cards-grid">
                 @for (card of cardData(); track $index) {
-                    <div class="card-tile">
-                        <span class="card-name">{{ card.name }}</span>
+                    <div class="card-tile" (click)="cardService.selectCard(card)">
+                        <span class="card-name">
+                            <span class="card-status-nub"
+                                [class.nub-green]="card.ready"
+                                [class.nub-yellow]="!card.ready && card.hasMask"
+                                [class.nub-red]="!card.ready && !card.hasMask">
+                            </span>
+                            {{ card.name }}
+                        </span>
                         <img [src]="card.pictureUri" [alt]="card.name" class="card-image" />
                     </div>
                 }
@@ -19,7 +26,35 @@
         }
     </div>
     <div class="detail-panel">
-        @if (setData().code) {
+        @if (cardService.selectedCard()) {
+            <div class="card-detail">
+                <div class="card-image-wrapper">
+                    <img [src]="cardService.selectedCard()!.pictureUri"
+                         [alt]="cardService.selectedCard()!.name"
+                         class="card-detail-image"
+                         (load)="onImageLoad($event)" />
+                    @if (naturalWidth() > 0) {
+                        <svg class="card-overlay"
+                             [attr.viewBox]="'0 0 ' + naturalWidth() + ' ' + naturalHeight()"
+                             xmlns="http://www.w3.org/2000/svg">
+                            @for (shape of cardService.selectedCard()!.mask?.shapes; track $index) {
+                                <rect [attr.x]="shape.x"
+                                      [attr.y]="shape.y"
+                                      [attr.width]="shape.width"
+                                      [attr.height]="shape.height"
+                                      fill="none"
+                                      stroke="red"
+                                      stroke-width="3" />
+                            }
+                        </svg>
+                    }
+                </div>
+                <div class="card-actions">
+                    <button class="btn-accept" (click)="cardService.acceptCard()">Accept</button>
+                    <button class="btn-edit">Edit</button>
+                </div>
+            </div>
+        } @else if (setData().code) {
             <div class="set-detail">
                 <div class="set-detail-header">
                     <div class="set-icon-wrapper">
