@@ -51,7 +51,7 @@
                 </div>
                 <div class="card-actions">
                     <button class="btn-accept" (click)="cardService.acceptCard()">Accept</button>
-                    <button class="btn-edit">Edit</button>
+                    <button class="btn-edit" (click)="openEdit()">Edit</button>
                 </div>
             </div>
         } @else if (setData().code) {

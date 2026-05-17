@@ -1,0 +1,31 @@
+<div class="edit-dialog">
+    <button class="close-btn" (click)="close()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+    </button>
+
+    <div class="card-image-wrapper">
+        <img [src]="card.pictureUri"
+             [alt]="card.name"
+             class="card-detail-image"
+             (load)="onImageLoad($event)" />
+        @if (naturalWidth() > 0) {
+            <svg class="card-overlay"
+                 [attr.viewBox]="'0 0 ' + naturalWidth() + ' ' + naturalHeight()"
+                 xmlns="http://www.w3.org/2000/svg">
+                @for (shape of card.mask?.shapes; track $index) {
+                    <rect [attr.x]="shape.x"
+                          [attr.y]="shape.y"
+                          [attr.width]="shape.width"
+                          [attr.height]="shape.height"
+                          fill="none"
+                          stroke="red"
+                          stroke-width="3" />
+                }
+            </svg>
+        }
+    </div>
+</div>

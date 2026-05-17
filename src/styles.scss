@@ -18,3 +18,11 @@ app-root {
     flex-direction: column;
     overflow: hidden;
 }
+
+.card-edit-dialog .mat-mdc-dialog-container {
+    padding: 0;
+    background: #0d0d14;
+    border-radius: 12px;
+    border: 1px solid #2a2a40;
+    overflow: hidden;
+}
