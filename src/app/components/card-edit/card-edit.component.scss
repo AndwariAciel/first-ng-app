@@ -1,8 +1,8 @@
 .edit-dialog {
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100%;
     padding: 2rem;
     background: #0d0d14;
@@ -35,13 +35,27 @@
     }
 }
 
+.edit-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.card-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
 .card-image-wrapper {
     position: relative;
     display: inline-block;
 }
 
 .card-detail-image {
-    max-height: 80vh;
+    max-height: 75vh;
     width: auto;
     display: block;
     border-radius: 12px;
@@ -54,4 +68,159 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.btn-new {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    background: #1e1e2e;
+    border: 1px solid #2a2a40;
+    border-radius: 8px;
+    color: #c0c0e0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+
+    &:hover {
+        background: #2a2a40;
+        border-color: #4a4a70;
+    }
+}
+
+.btn-save {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    background: #3a3acc;
+    border: none;
+    border-radius: 8px;
+    color: #e0e0ff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &:hover:not(:disabled) {
+        background: #4a4adc;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+.shape-panels {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    max-height: 80vh;
+}
+
+.shape-panel {
+    background: #1e1e2e;
+    border: 1px solid #2a2a40;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 280px;
+    overflow-y: auto;
+
+    h3 {
+        margin: 0 0 0.75rem;
+        color: #c0c0e0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+}
+
+.shape-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-height: 48px;
+}
+
+.shape-item {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: #13131f;
+    border: 1px solid #2a2a40;
+    border-radius: 8px;
+    cursor: grab;
+    transition: border-color 0.15s ease, background 0.15s ease;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    &.selected {
+        border-color: limegreen;
+        background: #0d1f0d;
+    }
+
+    &:hover:not(.selected) {
+        border-color: #4a4a70;
+    }
+}
+
+.shape-type {
+    color: #7070cc;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.shape-coord {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .label {
+        font-size: 0.6rem;
+        color: #5050aa;
+        text-transform: uppercase;
+        line-height: 1;
+    }
+
+    .value {
+        font-size: 0.8rem;
+        color: #c0c0e0;
+        line-height: 1.2;
+    }
+}
+
+.shape-empty {
+    font-size: 0.8rem;
+    color: #505070;
+    padding: 0.5rem 0.25rem;
+    font-style: italic;
+}
+
+/* CDK drag preview inherits item styles */
+.cdk-drag-preview {
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+}
+
+.cdk-drag-placeholder {
+    opacity: 0.3;
+}
+
+.cdk-drop-list-dragging .shape-item:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

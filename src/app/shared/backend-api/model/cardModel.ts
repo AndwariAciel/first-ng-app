@@ -7,7 +7,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { MaskModel } from './maskModel';
+import { ShapeModel } from './shapeModel';
 
 
 export interface CardModel { 
@@ -18,7 +18,7 @@ export interface CardModel {
     set?: string;
     pictureUri?: string;
     manaCost?: string;
-    mask?: MaskModel;
+    shapes?: Array<ShapeModel>;
     ready?: boolean;
 }
 export namespace CardModel {

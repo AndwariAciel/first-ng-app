@@ -14,7 +14,7 @@ export interface SetCardModel {
     name?: string;
     pictureUri?: string;
     ready?: boolean;
-    hasMask?: boolean;
+    hasShapes?: boolean;
     cardNumber?: number;
 }
 

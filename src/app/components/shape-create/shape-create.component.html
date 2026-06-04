@@ -1,0 +1,43 @@
+<div class="create-dialog">
+    <h2>New Shape</h2>
+
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <mat-form-field appearance="outline">
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="type">
+                @for (t of typeOptions; track t) {
+                    <mat-option [value]="t">{{ t }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <div class="coord-row">
+            <mat-form-field appearance="outline">
+                <mat-label>X</mat-label>
+                <input matInput type="number" formControlName="x" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Y</mat-label>
+                <input matInput type="number" formControlName="y" />
+            </mat-form-field>
+        </div>
+
+        <div class="coord-row">
+            <mat-form-field appearance="outline">
+                <mat-label>Width</mat-label>
+                <input matInput type="number" formControlName="width" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Height</mat-label>
+                <input matInput type="number" formControlName="height" />
+            </mat-form-field>
+        </div>
+
+        <div class="actions">
+            <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
+            <button type="submit" class="btn-save" [disabled]="form.invalid || saving()">
+                {{ saving() ? 'Saving…' : 'Save' }}
+            </button>
+        </div>
+    </form>
+</div>
